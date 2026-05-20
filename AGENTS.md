@@ -26,7 +26,7 @@ that are well design, cohesive, and easy to use and that provide rapid but stabl
 
 # Project Overview
 
-The `automojo-interop-coreweave` package is the venue-specific REST client for
+The `automojo-restclient-coreweave` package is the venue-specific REST client for
 CoreWeave's control-plane API. CoreWeave is a GPU-first cloud whose primary
 workload surface is Kubernetes (CKS), with bare-metal and Slurm-on-Kubernetes
 (Sunk) overlays on top. The native unit of provisioning is a Kubernetes object,
@@ -52,10 +52,10 @@ control retries, timeouts, and logging from the outside. Credentials enter as
 appear on the API surface.
 
 # Testing Conventions
-The 'automojo-interop-coreweave' package repository utilizes the 'testbase' framework
+The 'automojo-restclient-coreweave' package repository utilizes the 'testbase' framework
 for tests that require live resources, and the 'unittest' framework for isolated
 component tests. Single-host tests live under
-'source/testroots/automojo/tests/singlehost/interop/coreweave'.
+'source/testroots/automojo/tests/singlehost/restclient/coreweave'.
 
 Property-based tests (hypothesis) are required for paging cursors, hostname/URL
 composition, and idempotent retry semantics — see the per-spec Testing Strategy
@@ -95,7 +95,7 @@ When checking out the code for this repository in order to test changes, agents 
 
 # Model Code-Generation Decision (PLAN §9.2a)
 
-The data-model classes under `source/packages/automojo/interop/coreweave/model/`
+The data-model classes under `source/packages/automojo/restclient/coreweave/model/`
 are **hand-authored**, not generated from an OpenAPI document. CoreWeave does
 not publish a stable, public OpenAPI specification for the cloud control-plane
 surface this client targets, and the cloud-shaped surface is small and bounded

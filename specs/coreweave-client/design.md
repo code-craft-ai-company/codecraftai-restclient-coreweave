@@ -65,7 +65,7 @@ Exceptions (`exceptions/`):
 ## Module Layout
 
 ```
-source/packages/automojo/interop/coreweave/
+source/packages/automojo/restclient/coreweave/
 ├── __init__.py
 ├── coreweaveclient.py
 ├── aspectscoreweave.py            # DEFAULT_COREWEAVE_ASPECTS

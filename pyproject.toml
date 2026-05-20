@@ -1,6 +1,6 @@
 [tool.poetry]
-name = "automojo-interop-coreweave"
-description = "Automation Mojo - CoreWeave interop client"
+name = "automojo-restclient-coreweave"
+description = "Automation Mojo - CoreWeave restclient"
 version = "0.0.1"
 authors = []
 readme = "README.rst"

@@ -19,15 +19,15 @@ from automojo.errors.exceptions import ConfigurationError
 from automojo.credentials.basiccredential import BasicCredential
 from automojo.credentials.coreweaveapicredential import CoreweaveApiCredential
 
-from automojo.interop.coreweave.coreweaveclient import CoreweaveClient
-from automojo.interop.coreweave.apigroups.organizationsgroup import (
+from automojo.restclient.coreweave.coreweaveclient import CoreweaveClient
+from automojo.restclient.coreweave.apigroups.organizationsgroup import (
     OrganizationsGroup
 )
-from automojo.interop.coreweave.apigroups.kubeconfigsgroup import (
+from automojo.restclient.coreweave.apigroups.kubeconfigsgroup import (
     KubeconfigsGroup
 )
 
-from automojo.tests.interop.coreweave.testsupport import (
+from automojo.tests.restclient.coreweave.testsupport import (
     TEST_ORG, TEST_PROJECT, make_client, make_credential
 )
 

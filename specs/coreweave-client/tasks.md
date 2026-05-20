@@ -2,7 +2,7 @@
 
 ## Package Skeleton
 
-- [x] 1. Create `source/packages/automojo/interop/coreweave/` package tree with `apigroups/`, `model/`, `exceptions/` subpackages.
+- [x] 1. Create `source/packages/automojo/restclient/coreweave/` package tree with `apigroups/`, `model/`, `exceptions/` subpackages.
 - [x] 2. Add `aspectscoreweave.py` defining `DEFAULT_COREWEAVE_ASPECTS`.
 
 ## Client Core

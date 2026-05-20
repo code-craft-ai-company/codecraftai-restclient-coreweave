@@ -17,18 +17,18 @@ import requests_mock as rm_module
 
 from automojo.errors.exceptions import SemanticError
 
-from automojo.interop.coreweave.exceptions.coreweaveerrors import (
+from automojo.restclient.coreweave.exceptions.coreweaveerrors import (
     CoreweaveAuthenticationError,
     CoreweaveKubeconfigError,
     CoreweaveAcceleratorNotAvailableError,
     CoreweaveTaggingNotSupportedError,
 )
-from automojo.interop.coreweave.model.coreweavecluster import CoreweaveCluster
-from automojo.interop.coreweave.model.coreweavekubeconfig import (
+from automojo.restclient.coreweave.model.coreweavecluster import CoreweaveCluster
+from automojo.restclient.coreweave.model.coreweavekubeconfig import (
     CoreweaveKubeconfig
 )
 
-from automojo.tests.interop.coreweave.testsupport import (
+from automojo.tests.restclient.coreweave.testsupport import (
     BASE, TEST_PROJECT, make_client, sample_kubeconfig_yaml
 )
 

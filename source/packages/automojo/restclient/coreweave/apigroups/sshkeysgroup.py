@@ -15,12 +15,12 @@ from typing import Any, Dict, List
 
 from automojo.errors.exceptions import HttpNotFoundError
 
-from automojo.interop.coreweave.aspectscoreweave import (
+from automojo.restclient.coreweave.aspectscoreweave import (
     AspectsCoreweave, DEFAULT_COREWEAVE_ASPECTS
 )
-from automojo.interop.coreweave.apigroups.groupsupport import collect_paged_items
-from automojo.interop.coreweave.model.coreweavesshkey import CoreweaveSshKey
-from automojo.interop.coreweave.urlcompose import require_identifier
+from automojo.restclient.coreweave.apigroups.groupsupport import collect_paged_items
+from automojo.restclient.coreweave.model.coreweavesshkey import CoreweaveSshKey
+from automojo.restclient.coreweave.urlcompose import require_identifier
 
 
 class SshKeysGroup:

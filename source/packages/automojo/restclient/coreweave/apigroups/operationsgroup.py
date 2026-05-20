@@ -13,13 +13,13 @@ __credits__ = []
 
 from typing import Any
 
-from automojo.interop.coreweave.aspectscoreweave import (
+from automojo.restclient.coreweave.aspectscoreweave import (
     AspectsCoreweave, DEFAULT_COREWEAVE_ASPECTS
 )
-from automojo.interop.coreweave.model.coreweaveoperationresult import (
+from automojo.restclient.coreweave.model.coreweaveoperationresult import (
     CoreweaveOperationResult
 )
-from automojo.interop.coreweave.urlcompose import require_identifier
+from automojo.restclient.coreweave.urlcompose import require_identifier
 
 
 class OperationsGroup:

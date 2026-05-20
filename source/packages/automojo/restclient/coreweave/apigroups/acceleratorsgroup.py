@@ -15,17 +15,17 @@ import os
 
 from typing import Any, Dict, List
 
-from automojo.interop.coreweave.aspectscoreweave import (
+from automojo.restclient.coreweave.aspectscoreweave import (
     AspectsCoreweave, DEFAULT_COREWEAVE_ASPECTS
 )
-from automojo.interop.coreweave.apigroups.groupsupport import collect_paged_items
-from automojo.interop.coreweave.exceptions.coreweaveerrors import (
+from automojo.restclient.coreweave.apigroups.groupsupport import collect_paged_items
+from automojo.restclient.coreweave.exceptions.coreweaveerrors import (
     CoreweaveAcceleratorNotAvailableError
 )
-from automojo.interop.coreweave.model.coreweaveacceleratorsku import (
+from automojo.restclient.coreweave.model.coreweaveacceleratorsku import (
     CoreweaveAcceleratorSku
 )
-from automojo.interop.coreweave.urlcompose import require_identifier
+from automojo.restclient.coreweave.urlcompose import require_identifier
 
 
 class AcceleratorsGroup:

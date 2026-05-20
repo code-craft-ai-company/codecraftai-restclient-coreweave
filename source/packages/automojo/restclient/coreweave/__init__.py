@@ -1,7 +1,7 @@
 """
     .. module:: coreweave
     :platform: Darwin, Linux, Unix, Windows
-    :synopsis: The ``automojo.interop.coreweave`` package — the CoreWeave
+    :synopsis: The ``automojo.restclient.coreweave`` package — the CoreWeave
         control-plane REST client.
 
     .. moduleauthor:: Myron Walker <myron.walker@gmail.com>

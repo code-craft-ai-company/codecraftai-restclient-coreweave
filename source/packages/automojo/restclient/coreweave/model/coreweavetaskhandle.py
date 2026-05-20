@@ -21,10 +21,10 @@ from automojo.aspects.aspects import Aspects
 
 from automojo.interfaces.itaskhandle import TaskResult, TaskState
 
-from automojo.interop.coreweave.aspectscoreweave import (
+from automojo.restclient.coreweave.aspectscoreweave import (
     AspectsCoreweave, DEFAULT_COREWEAVE_ASPECTS
 )
-from automojo.interop.coreweave.model.coreweaveoperationresult import (
+from automojo.restclient.coreweave.model.coreweaveoperationresult import (
     CoreweaveOperationResult
 )
 

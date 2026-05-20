@@ -15,13 +15,13 @@ import os
 
 from typing import Any, Dict, List
 
-from automojo.interop.coreweave.aspectscoreweave import (
+from automojo.restclient.coreweave.aspectscoreweave import (
     AspectsCoreweave, DEFAULT_COREWEAVE_ASPECTS
 )
-from automojo.interop.coreweave.exceptions.coreweaveerrors import (
+from automojo.restclient.coreweave.exceptions.coreweaveerrors import (
     CoreweaveTaggingNotSupportedError
 )
-from automojo.interop.coreweave.urlcompose import require_identifier
+from automojo.restclient.coreweave.urlcompose import require_identifier
 
 
 # Resource types the CoreWeave control plane supports tagging on.

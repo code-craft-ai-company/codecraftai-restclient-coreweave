@@ -28,38 +28,38 @@ from automojo.credentials.coreweaveapicredential import CoreweaveApiCredential
 
 from automojo.restclient.base.restclientbase import RestClientBase
 
-from automojo.interop.coreweave.aspectscoreweave import (
+from automojo.restclient.coreweave.aspectscoreweave import (
     AspectsCoreweave, DEFAULT_COREWEAVE_ASPECTS
 )
-from automojo.interop.coreweave.apigroups.groupsupport import safe_json
-from automojo.interop.coreweave.apigroups.organizationsgroup import (
+from automojo.restclient.coreweave.apigroups.groupsupport import safe_json
+from automojo.restclient.coreweave.apigroups.organizationsgroup import (
     OrganizationsGroup
 )
-from automojo.interop.coreweave.apigroups.projectsgroup import ProjectsGroup
-from automojo.interop.coreweave.apigroups.clustersgroup import ClustersGroup
-from automojo.interop.coreweave.apigroups.nodepoolsgroup import NodePoolsGroup
-from automojo.interop.coreweave.apigroups.acceleratorsgroup import (
+from automojo.restclient.coreweave.apigroups.projectsgroup import ProjectsGroup
+from automojo.restclient.coreweave.apigroups.clustersgroup import ClustersGroup
+from automojo.restclient.coreweave.apigroups.nodepoolsgroup import NodePoolsGroup
+from automojo.restclient.coreweave.apigroups.acceleratorsgroup import (
     AcceleratorsGroup
 )
-from automojo.interop.coreweave.apigroups.kubeconfigsgroup import (
+from automojo.restclient.coreweave.apigroups.kubeconfigsgroup import (
     KubeconfigsGroup
 )
-from automojo.interop.coreweave.apigroups.sshkeysgroup import SshKeysGroup
-from automojo.interop.coreweave.apigroups.objectnamespacesgroup import (
+from automojo.restclient.coreweave.apigroups.sshkeysgroup import SshKeysGroup
+from automojo.restclient.coreweave.apigroups.objectnamespacesgroup import (
     ObjectNamespacesGroup
 )
-from automojo.interop.coreweave.apigroups.tagsgroup import TagsGroup
-from automojo.interop.coreweave.apigroups.operationsgroup import OperationsGroup
-from automojo.interop.coreweave.exceptions.coreweaveerrors import (
+from automojo.restclient.coreweave.apigroups.tagsgroup import TagsGroup
+from automojo.restclient.coreweave.apigroups.operationsgroup import OperationsGroup
+from automojo.restclient.coreweave.exceptions.coreweaveerrors import (
     CoreweaveAuthenticationError
 )
-from automojo.interop.coreweave.model.coreweavekubeconfig import (
+from automojo.restclient.coreweave.model.coreweavekubeconfig import (
     CoreweaveKubeconfig
 )
-from automojo.interop.coreweave.model.coreweavetaskhandle import (
+from automojo.restclient.coreweave.model.coreweavetaskhandle import (
     CoreweaveTaskHandle
 )
-from automojo.interop.coreweave.urlcompose import compose_leaf
+from automojo.restclient.coreweave.urlcompose import compose_leaf
 
 
 COREWEAVE_API_HOST = "api.coreweave.com"

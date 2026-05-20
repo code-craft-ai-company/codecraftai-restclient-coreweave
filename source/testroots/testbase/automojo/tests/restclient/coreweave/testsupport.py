@@ -14,7 +14,7 @@ __credits__ = []
 
 from automojo.credentials.coreweaveapicredential import CoreweaveApiCredential
 
-from automojo.interop.coreweave.coreweaveclient import CoreweaveClient
+from automojo.restclient.coreweave.coreweaveclient import CoreweaveClient
 
 
 TEST_HOST = "api.coreweave.test"

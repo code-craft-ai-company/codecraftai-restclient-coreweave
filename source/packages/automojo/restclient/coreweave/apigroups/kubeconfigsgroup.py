@@ -17,16 +17,16 @@ import os
 
 from typing import Any
 
-from automojo.interop.coreweave.aspectscoreweave import (
+from automojo.restclient.coreweave.aspectscoreweave import (
     AspectsCoreweave, DEFAULT_COREWEAVE_ASPECTS
 )
-from automojo.interop.coreweave.exceptions.coreweaveerrors import (
+from automojo.restclient.coreweave.exceptions.coreweaveerrors import (
     CoreweaveKubeconfigError
 )
-from automojo.interop.coreweave.model.coreweavekubeconfig import (
+from automojo.restclient.coreweave.model.coreweavekubeconfig import (
     CoreweaveKubeconfig
 )
-from automojo.interop.coreweave.urlcompose import require_identifier
+from automojo.restclient.coreweave.urlcompose import require_identifier
 
 
 class KubeconfigsGroup:

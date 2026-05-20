@@ -2,7 +2,7 @@
 Automation Mojo Interop - CoreWeave
 =========================================
 
-The ``automojo-interop-coreweave`` package is the venue-specific REST client for
+The ``automojo-restclient-coreweave`` package is the venue-specific REST client for
 CoreWeave's control-plane API. CoreWeave is a GPU-first cloud whose primary workload
 surface is Kubernetes (CKS), with bare-metal and Slurm-on-Kubernetes (Sunk) overlays.
 This client authenticates against the CoreWeave control plane, exchanges an organization
@@ -23,8 +23,8 @@ Repository Structure
 
 - ``development/`` - Runtime environment scripts.
 - ``repository-setup/`` - Repository homing and setup scripts.
-- ``source/packages/automojo/interop/coreweave/`` - Package source code.
-- ``source/testroots/testbase/automojo/tests/interop/coreweave/`` - TestBase test roots.
+- ``source/packages/automojo/restclient/coreweave/`` - Package source code.
+- ``source/testroots/testbase/automojo/tests/restclient/coreweave/`` - TestBase test roots.
 - ``specs/`` - Requirements, design, and task documentation (Kiro-style).
 - ``userguide/`` - Standards, conventions, and documentation.
 
