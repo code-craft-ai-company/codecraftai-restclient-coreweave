@@ -7,7 +7,7 @@ control-plane REST API. Its responsibility is the cloud-shaped surface
 (organizations, projects, clusters, node pools, accelerator SKUs, kubeconfig
 issuance, SSH keys, object-storage namespaces, tagging, long-running
 operations) — *not* the Kubernetes-shaped surface, which is delegated to
-`automojo-interop-kubernetes` via the kubeconfig this client mints.
+`codecraftai-interop-kubernetes` via the kubeconfig this client mints.
 
 All calls accept `aspects: AspectsRest = DEFAULT_COREWEAVE_ASPECTS` so
 retry/backoff/timeout/logging are caller-driven. Credentials are typed
@@ -20,13 +20,13 @@ Kubernetes SDK.
 
 ```
 ┌────────────────────────────────────────────────────────┐
-│  automojo-provisioning / venues / coreweave            │
+│  codecraftai-provisioning / venues / coreweave            │
 │  (WorkloadProvisioner lifecycle)                       │
 └──────────┬─────────────────────────────┬───────────────┘
            │ cloud-shaped ops             │ kubeconfig
            ▼                              ▼
 ┌────────────────────────────┐  ┌─────────────────────────┐
-│  CoreweaveClient           │  │ automojo-interop-       │
+│  CoreweaveClient           │  │ codecraftai-interop-       │
 │  (this package)            │  │   kubernetes            │
 │  ─ RestClientBase          │  │ (downstream consumer)   │
 │  ─ AspectsRest on every op │  └─────────────────────────┘
@@ -65,7 +65,7 @@ Exceptions (`exceptions/`):
 ## Module Layout
 
 ```
-source/packages/automojo/restclient/coreweave/
+source/packages/ccai/restclient/coreweave/
 ├── __init__.py
 ├── coreweaveclient.py
 ├── aspectscoreweave.py            # DEFAULT_COREWEAVE_ASPECTS
@@ -88,10 +88,10 @@ source/packages/automojo/restclient/coreweave/
 
 ## See Also
 
-- `automojo-restclient-base/specs/restapigroup-enhancements/` — `RestApiGroup` shape this client builds on.
-- `automojo-interop-kubernetes/specs/kubernetes-client/` — downstream consumer of the issued kubeconfig.
-- `automojo-provisioning/specs/venue-coreweave/` — provisioner that composes this client.
-- `automojo-credentials/specs/coreweave-credentials/` — credential type accepted on construction.
+- `codecraftai-restclient-base/specs/restapigroup-enhancements/` — `RestApiGroup` shape this client builds on.
+- `codecraftai-interop-kubernetes/specs/kubernetes-client/` — downstream consumer of the issued kubeconfig.
+- `codecraftai-provisioning/specs/venue-coreweave/` — provisioner that composes this client.
+- `codecraftai-credentials/specs/coreweave-credentials/` — credential type accepted on construction.
 
 ---
 

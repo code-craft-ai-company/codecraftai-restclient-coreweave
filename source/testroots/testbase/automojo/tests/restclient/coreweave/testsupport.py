@@ -8,13 +8,13 @@
 """
 
 __author__ = "Myron Walker"
-__copyright__ = "Copyright 2026, Automation Mojo LLC"
+__copyright__ = "Copyright 2026, Code Craft AI LLC"
 __credits__ = []
 
 
-from automojo.credentials.coreweaveapicredential import CoreweaveApiCredential
+from ccai.credentials.coreweaveapicredential import CoreweaveApiCredential
 
-from automojo.restclient.coreweave.coreweaveclient import CoreweaveClient
+from ccai.restclient.coreweave.coreweaveclient import CoreweaveClient
 
 
 TEST_HOST = "api.coreweave.test"

@@ -8,17 +8,17 @@ small and bounded — its responsibility is the *cloud-shaped* surface that
 exists outside the Kubernetes API: organization/project enumeration, cluster
 lookup, node-pool and accelerator inventory, kubeconfig issuance, and
 object-storage namespace management. All Kubernetes-shaped work (jobs,
-deployments, PVCs, services) is delegated to `automojo-interop-kubernetes`
+deployments, PVCs, services) is delegated to `codecraftai-interop-kubernetes`
 via the kubeconfig this client produces.
 
-The client is built on `RestClientBase` from `automojo-restclient-base`.
+The client is built on `RestClientBase` from `codecraftai-restclient-base`.
 Authentication uses a typed `CoreweaveApiCredential` from
-`automojo-credentials`. Every behaviour-bearing call accepts a typed
+`codecraftai-credentials`. Every behaviour-bearing call accepts a typed
 `aspects: AspectsRest = DEFAULT_COREWEAVE_ASPECTS` parameter so callers
 control retry, timeout, and logging policy externally. The client never
 speaks the Kubernetes API directly.
 
-This client is consumed by `automojo-provisioning/venues/coreweave/` to
+This client is consumed by `codecraftai-provisioning/venues/coreweave/` to
 implement the `WorkloadProvisioner` lifecycle against CoreWeave Cloud and
 Sunk-on-CKS workloads.
 
@@ -66,7 +66,7 @@ CoreWeave target.
 
 **User Story:** As a provisioner, I want to exchange the API credential for a
 scoped kubeconfig so that downstream Kubernetes-shaped work runs through
-`automojo-interop-kubernetes`.
+`codecraftai-interop-kubernetes`.
 
 #### Acceptance Criteria
 

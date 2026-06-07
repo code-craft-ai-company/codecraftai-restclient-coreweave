@@ -8,27 +8,27 @@
 """
 
 __author__ = "Myron Walker"
-__copyright__ = "Copyright 2026, Automation Mojo LLC"
+__copyright__ = "Copyright 2026, Code Craft AI LLC"
 __credits__ = []
 
 
 import pytest
 import requests_mock as rm_module
 
-from automojo.errors.exceptions import SemanticError
+from ccai.errors.exceptions import SemanticError
 
-from automojo.restclient.coreweave.exceptions.coreweaveerrors import (
+from ccai.restclient.coreweave.exceptions.coreweaveerrors import (
     CoreweaveAuthenticationError,
     CoreweaveKubeconfigError,
     CoreweaveAcceleratorNotAvailableError,
     CoreweaveTaggingNotSupportedError,
 )
-from automojo.restclient.coreweave.model.coreweavecluster import CoreweaveCluster
-from automojo.restclient.coreweave.model.coreweavekubeconfig import (
+from ccai.restclient.coreweave.model.coreweavecluster import CoreweaveCluster
+from ccai.restclient.coreweave.model.coreweavekubeconfig import (
     CoreweaveKubeconfig
 )
 
-from automojo.tests.restclient.coreweave.testsupport import (
+from ccai.tests.restclient.coreweave.testsupport import (
     BASE, TEST_PROJECT, make_client, sample_kubeconfig_yaml
 )
 

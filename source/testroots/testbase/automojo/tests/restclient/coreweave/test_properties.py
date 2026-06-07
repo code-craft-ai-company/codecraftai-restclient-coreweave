@@ -9,7 +9,7 @@
 """
 
 __author__ = "Myron Walker"
-__copyright__ = "Copyright 2026, Automation Mojo LLC"
+__copyright__ = "Copyright 2026, Code Craft AI LLC"
 __credits__ = []
 
 
@@ -21,26 +21,26 @@ import requests_mock as rm_module
 from hypothesis import given, settings
 from hypothesis import strategies as st
 
-from automojo.errors.exceptions import SemanticError
+from ccai.errors.exceptions import SemanticError
 
-from automojo.restclient.base.aspectsrest import ActionPattern
+from ccai.restclient.base.aspectsrest import ActionPattern
 
-from automojo.restclient.coreweave.aspectscoreweave import AspectsCoreweave
-from automojo.restclient.coreweave.apigroups.groupsupport import (
+from ccai.restclient.coreweave.aspectscoreweave import AspectsCoreweave
+from ccai.restclient.coreweave.apigroups.groupsupport import (
     collect_paged_items
 )
-from automojo.restclient.coreweave.apigroups.operationsgroup import (
+from ccai.restclient.coreweave.apigroups.operationsgroup import (
     OperationsGroup
 )
-from automojo.restclient.coreweave.model.coreweavetaskhandle import (
+from ccai.restclient.coreweave.model.coreweavetaskhandle import (
     CoreweaveTaskHandle
 )
-from automojo.restclient.coreweave.model.coreweaveoperationresult import (
+from ccai.restclient.coreweave.model.coreweaveoperationresult import (
     CoreweaveOperationResult
 )
-from automojo.restclient.coreweave.urlcompose import compose_leaf, require_identifier
+from ccai.restclient.coreweave.urlcompose import compose_leaf, require_identifier
 
-from automojo.tests.restclient.coreweave.testsupport import BASE, make_client
+from ccai.tests.restclient.coreweave.testsupport import BASE, make_client
 
 
 # ----------------------------------------------------------------------

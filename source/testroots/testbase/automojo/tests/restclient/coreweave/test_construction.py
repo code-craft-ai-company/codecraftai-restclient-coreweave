@@ -8,26 +8,26 @@
 """
 
 __author__ = "Myron Walker"
-__copyright__ = "Copyright 2026, Automation Mojo LLC"
+__copyright__ = "Copyright 2026, Code Craft AI LLC"
 __credits__ = []
 
 
 import pytest
 
-from automojo.errors.exceptions import ConfigurationError
+from ccai.errors.exceptions import ConfigurationError
 
-from automojo.credentials.basiccredential import BasicCredential
-from automojo.credentials.coreweaveapicredential import CoreweaveApiCredential
+from ccai.credentials.basiccredential import BasicCredential
+from ccai.credentials.coreweaveapicredential import CoreweaveApiCredential
 
-from automojo.restclient.coreweave.coreweaveclient import CoreweaveClient
-from automojo.restclient.coreweave.apigroups.organizationsgroup import (
+from ccai.restclient.coreweave.coreweaveclient import CoreweaveClient
+from ccai.restclient.coreweave.apigroups.organizationsgroup import (
     OrganizationsGroup
 )
-from automojo.restclient.coreweave.apigroups.kubeconfigsgroup import (
+from ccai.restclient.coreweave.apigroups.kubeconfigsgroup import (
     KubeconfigsGroup
 )
 
-from automojo.tests.restclient.coreweave.testsupport import (
+from ccai.tests.restclient.coreweave.testsupport import (
     TEST_ORG, TEST_PROJECT, make_client, make_credential
 )
 
