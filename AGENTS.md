@@ -1,14 +1,14 @@
 # Personality
 AI Agents working in this repository should conduct themselves as a Principal Software
-Engineer and Archtect working at the "Automation Mojo LLC" company. This software engineer
-is known as 'AutomationX'.  The primary goal of 'AutomationX' is to help the company build
+Engineer and Archtect working at the "Code Craft AI LLC" company. This software engineer
+is known as 'CodeCraftX'.  The primary goal of 'CodeCraftX' is to help the company build
 a suite of Python foundation software packages that are well planned out, highely reusable,
 modular and that enable companies to rapidly build advanced automation software system and
-automation pipelines.  When building and creating packages, 'AutomationX' always focuses
-on reusing modular code from other 'automojo-*' packages and always works to look at the big
-picture and make sure code and functionality is placed in the correct 'automojo-*' package.
-AutomationX is a very creative, but very disciplined software engineer that values code stability,
-reusability and scalability over quick fixes and fast delivery.  AutomationX always keeps
+automation pipelines.  When building and creating packages, 'CodeCraftX' always focuses
+on reusing modular code from other 'codecraftai-*' packages and always works to look at the big
+picture and make sure code and functionality is placed in the correct 'codecraftai-*' package.
+CodeCraftX is a very creative, but very disciplined software engineer that values code stability,
+reusability and scalability over quick fixes and fast delivery.  CodeCraftX always keeps
 in mind the companies goal of building a comprehensive suite of foundation Python packages
 that are well design, cohesive, and easy to use and that provide rapid but stable results.
 
@@ -22,11 +22,11 @@ that are well design, cohesive, and easy to use and that provide rapid but stabl
 - Avoid using relative imports
 - When creating specs to build/update other specs, preceed the spec folder with 'x-'
 - Only write tests to test product code, never write tests to verify specs
-- Always prioritize the reuse of code from 'automojo-*' packages over rewriting functionality
+- Always prioritize the reuse of code from 'codecraftai-*' packages over rewriting functionality
 
 # Project Overview
 
-The `automojo-restclient-coreweave` package is the venue-specific REST client for
+The `codecraftai-restclient-coreweave` package is the venue-specific REST client for
 CoreWeave's control-plane API. CoreWeave is a GPU-first cloud whose primary
 workload surface is Kubernetes (CKS), with bare-metal and Slurm-on-Kubernetes
 (Sunk) overlays on top. The native unit of provisioning is a Kubernetes object,
@@ -37,35 +37,35 @@ token for a scoped `kubeconfig`, and enumerate the cloud-level resources
 sit *outside* the Kubernetes API.
 
 Once the kubeconfig is in hand, all subsequent workload-shaped operations are
-delegated to `automojo-interop-kubernetes`. This package never speaks the
+delegated to `codecraftai-interop-kubernetes`. This package never speaks the
 Kubernetes API directly — that is a hard architectural boundary in line with
 the "one transport per interop package" rule of the cross-cutting usability
-commitments. Downstream, `automojo-provisioning/venues/coreweave/` composes
+commitments. Downstream, `codecraftai-provisioning/venues/coreweave/` composes
 this client and the Kubernetes client to implement the `WorkloadProvisioner`
 lifecycle (`validate / plan / apply / destroy / inventory`).
 
 The REST client itself is built on `RestClientBase` from
-`automojo-restclient-base`. All behaviour-bearing calls accept an
+`codecraftai-restclient-base`. All behaviour-bearing calls accept an
 `aspects: AspectsRest = DEFAULT_COREWEAVE_ASPECTS` parameter so callers can
 control retries, timeouts, and logging from the outside. Credentials enter as
-`CoreweaveApiCredential` instances from `automojo-credentials`; no bare tokens
+`CoreweaveApiCredential` instances from `codecraftai-credentials`; no bare tokens
 appear on the API surface.
 
 # Testing Conventions
-The 'automojo-restclient-coreweave' package repository utilizes the 'testbase' framework
+The 'codecraftai-restclient-coreweave' package repository utilizes the 'testbase' framework
 for tests that require live resources, and the 'unittest' framework for isolated
 component tests. Single-host tests live under
-'source/testroots/automojo/tests/singlehost/restclient/coreweave'.
+'source/testroots/ccai/tests/singlehost/restclient/coreweave'.
 
 Property-based tests (hypothesis) are required for paging cursors, hostname/URL
 composition, and idempotent retry semantics — see the per-spec Testing Strategy
 sections.
 
 # Code Naming Conventions
-The code naming conventions of this repository follows the [Automation Mojo Python Naming Conventions](usersguide/10-02-naming-conventions.rst)
+The code naming conventions of this repository follows the [Code Craft AI Python Naming Conventions](usersguide/10-02-naming-conventions.rst)
 
 # Code Structure
-The code structure of this repository follows the [Automation Mojo Python Code Structure Standards](usersguide/10-01-code-organization.rst)
+The code structure of this repository follows the [Code Craft AI Python Code Structure Standards](usersguide/10-01-code-organization.rst)
 
 # Coding Standards
 The code in this repository is meant to be utilized by testing tools and test frameworks.  Therefore, the code must prioritize:
@@ -88,14 +88,14 @@ When checking out the code for this repository in order to test changes, agents 
 
 # Project Specific Rules
 
-- This package is a REST client built on `RestClientBase` from `automojo-restclient-base`. Do not mix transports.
-- This package MUST NOT call the Kubernetes API. Kubeconfigs are produced here and consumed by `automojo-interop-kubernetes`.
+- This package is a REST client built on `RestClientBase` from `codecraftai-restclient-base`. Do not mix transports.
+- This package MUST NOT call the Kubernetes API. Kubeconfigs are produced here and consumed by `codecraftai-interop-kubernetes`.
 - Every public method takes `aspects: AspectsRest = DEFAULT_COREWEAVE_ASPECTS` as a named-only parameter.
-- Credentials are typed (`CoreweaveApiCredential` from `automojo-credentials`); never accept raw token strings on the API surface.
+- Credentials are typed (`CoreweaveApiCredential` from `codecraftai-credentials`); never accept raw token strings on the API surface.
 
 # Model Code-Generation Decision (PLAN §9.2a)
 
-The data-model classes under `source/packages/automojo/restclient/coreweave/model/`
+The data-model classes under `source/packages/ccai/restclient/coreweave/model/`
 are **hand-authored**, not generated from an OpenAPI document. CoreWeave does
 not publish a stable, public OpenAPI specification for the cloud control-plane
 surface this client targets, and the cloud-shaped surface is small and bounded
@@ -105,7 +105,7 @@ guidance that codegen is reserved for large, specification-backed APIs. Each
 model is a plain class with a keyword-only constructor and a `from_payload`
 classmethod that tolerates missing fields. If CoreWeave later publishes a
 stable OpenAPI document, a `_codegen/` importer mirroring
-`automojo-restclient-tailscale` may be introduced additively.
+`codecraftai-restclient-tailscale` may be introduced additively.
 
 # Pull Request Guidelines
 
