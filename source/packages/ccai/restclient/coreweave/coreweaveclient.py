@@ -335,18 +335,19 @@ class CoreweaveClient(RestClientBase):
         """
         leaf = compose_leaf(segments=segments)
 
-        body_bytes: Optional[bytes] = None
+        # NOT serialised here.  RestClientBase hands the body to requests as
+        # `json=body`, which encodes it and sets the content type; pre-encoding
+        # to bytes made every write double-encode, and requests cannot
+        # JSON-encode bytes.
+        request_body: Optional[Dict[str, Any]] = body
         headers: Dict[str, str] = {}
-        if body is not None:
-            body_bytes = json.dumps(body).encode("utf-8")
-            headers["Content-Type"] = "application/json"
 
         try:
             response: Response = self.perform_call(
                 leaf=leaf,
                 method=method,
                 params=params,
-                body=body_bytes,
+                body=request_body,
                 exp_status=list(_SUCCESS_STATUSES),
                 headers=headers,
                 context_msg="CoreWeave API call",
