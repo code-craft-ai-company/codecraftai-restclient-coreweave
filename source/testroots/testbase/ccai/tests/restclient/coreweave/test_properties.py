@@ -18,8 +18,8 @@ from typing import Any, Dict, List
 import pytest
 import requests_mock as rm_module
 
-from hypothesis import given, settings
-from hypothesis import strategies as st
+from ccai.testbase.properties import given
+from ccai.testbase.properties import strategies as st
 
 from ccai.errors.exceptions import SemanticError
 
@@ -47,8 +47,8 @@ from ccai.tests.restclient.coreweave.testsupport import BASE, make_client
 # Paging-cursor traversal
 # ----------------------------------------------------------------------
 
-@settings(max_examples=100)
-@given(page_sizes=st.lists(st.integers(min_value=0, max_value=6),
+@given(
+    constraints={"max_examples": 100},page_sizes=st.lists(st.integers(min_value=0, max_value=6),
                            min_size=1, max_size=8))
 def test_paging_cursor_union_is_total(page_sizes: List[int]):
     """
@@ -89,8 +89,8 @@ def test_paging_cursor_union_is_total(page_sizes: List[int]):
 # URL composition
 # ----------------------------------------------------------------------
 
-@settings(max_examples=100)
-@given(segments=st.lists(st.text(min_size=1, max_size=12), min_size=1,
+@given(
+    constraints={"max_examples": 100},segments=st.lists(st.text(min_size=1, max_size=12), min_size=1,
                          max_size=6))
 def test_url_composition_is_deterministic(segments: List[str]):
     """
@@ -108,8 +108,8 @@ def test_url_composition_is_deterministic(segments: List[str]):
     return
 
 
-@settings(max_examples=50)
-@given(prefix=st.lists(st.text(min_size=1, max_size=8), min_size=0,
+@given(
+    constraints={"max_examples": 50},prefix=st.lists(st.text(min_size=1, max_size=8), min_size=0,
                        max_size=3),
        suffix=st.lists(st.text(min_size=1, max_size=8), min_size=0,
                        max_size=3),
@@ -125,8 +125,7 @@ def test_url_composition_rejects_empty_segment(prefix, suffix, bad):
     return
 
 
-@settings(max_examples=50)
-@given(bad=st.sampled_from(["", None]))
+@given(bad=st.sampled_from(["", None]), constraints={"max_examples": 50})
 def test_require_identifier_rejects_empty(bad):
     """
         ``require_identifier`` rejects empty / ``None`` identifiers.
@@ -183,8 +182,7 @@ class _FakeOperationsGroup:
 # Idempotent retry semantics
 # ----------------------------------------------------------------------
 
-@settings(max_examples=40, deadline=None)
-@given(transient_count=st.integers(min_value=0, max_value=4))
+@given(transient_count=st.integers(min_value=0, max_value=4), constraints={"max_examples": 40})
 def test_idempotent_retry_within_budget(transient_count: int):
     """
         For any number of transient 503 failures within the retry budget,
@@ -212,8 +210,8 @@ def test_idempotent_retry_within_budget(transient_count: int):
     return
 
 
-@settings(max_examples=60, deadline=None)
-@given(running_count=st.integers(min_value=0, max_value=5),
+@given(
+    constraints={"max_examples": 60},running_count=st.integers(min_value=0, max_value=5),
        terminal=st.sampled_from(["succeeded", "failed", "cancelled"]))
 def test_task_handle_terminates_on_first_terminal(running_count: int,
                                                   terminal: str):
