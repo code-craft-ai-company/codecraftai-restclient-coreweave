@@ -13,9 +13,11 @@ __copyright__ = "Copyright 2026, Code Craft AI LLC"
 __credits__ = []
 
 
+from ccai import testbase
+
+
 from typing import Any, Dict, List
 
-import pytest
 import requests_mock as rm_module
 
 from ccai.testbase.properties import given
@@ -120,7 +122,7 @@ def test_url_composition_rejects_empty_segment(prefix, suffix, bad):
         :class:`SemanticError`.
     """
     seg_tuple = tuple(prefix) + (bad,) + tuple(suffix)
-    with pytest.raises(SemanticError):
+    with testbase.raises(SemanticError):
         compose_leaf(segments=seg_tuple)
     return
 
@@ -130,7 +132,7 @@ def test_require_identifier_rejects_empty(bad):
     """
         ``require_identifier`` rejects empty / ``None`` identifiers.
     """
-    with pytest.raises(SemanticError):
+    with testbase.raises(SemanticError):
         require_identifier(name="thing", value=bad)
     return
 

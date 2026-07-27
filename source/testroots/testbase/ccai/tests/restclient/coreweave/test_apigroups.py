@@ -12,7 +12,9 @@ __copyright__ = "Copyright 2026, Code Craft AI LLC"
 __credits__ = []
 
 
-import pytest
+from ccai import testbase
+
+
 import requests_mock as rm_module
 
 from ccai.errors.exceptions import SemanticError
@@ -75,7 +77,7 @@ def test_list_clusters_empty_project_raises_semantic_error():
         An empty identifier raises :class:`SemanticError` before any HTTP.
     """
     client = make_client()
-    with pytest.raises(SemanticError):
+    with testbase.raises(SemanticError):
         client.clusters.list(project_id="")
     return
 
@@ -109,7 +111,7 @@ def test_issue_kubeconfig_missing_payload_raises():
     body = {"kubeconfig": "", "api_endpoint": "https://k.test"}
     with rm_module.Mocker() as mock:
         mock.post("{}/v1/clusters/c1/kubeconfig".format(BASE), json=body)
-        with pytest.raises(CoreweaveKubeconfigError):
+        with testbase.raises(CoreweaveKubeconfigError):
             client.kubeconfigs.issue(cluster_id="c1")
     return
 
@@ -139,7 +141,7 @@ def test_http_401_reclassified_as_authentication_error():
     with rm_module.Mocker() as mock:
         mock.get("{}/v1/organizations".format(BASE), status_code=401,
                  json={"detail": "bad token"})
-        with pytest.raises(CoreweaveAuthenticationError):
+        with testbase.raises(CoreweaveAuthenticationError):
             client.organizations.list()
     return
 
@@ -153,7 +155,7 @@ def test_http_403_reclassified_as_authentication_error():
     with rm_module.Mocker() as mock:
         mock.get("{}/v1/organizations".format(BASE), status_code=403,
                  json={"detail": "forbidden"})
-        with pytest.raises(CoreweaveAuthenticationError):
+        with testbase.raises(CoreweaveAuthenticationError):
             client.organizations.list()
     return
 
@@ -237,7 +239,7 @@ def test_require_sku_absent_raises():
         mock.get("{}/v1/projects/{}/accelerator-skus".format(BASE,
                  TEST_PROJECT),
                  json={"items": [{"name": "H100_SXM", "gpu_model": "H100"}]})
-        with pytest.raises(CoreweaveAcceleratorNotAvailableError):
+        with testbase.raises(CoreweaveAcceleratorNotAvailableError):
             client.accelerators.require_sku(project_id=TEST_PROJECT,
                                             sku_name="B200")
     return
@@ -249,7 +251,7 @@ def test_apply_tags_unsupported_resource_raises():
         an untaggable resource type.
     """
     client = make_client()
-    with pytest.raises(CoreweaveTaggingNotSupportedError):
+    with testbase.raises(CoreweaveTaggingNotSupportedError):
         client.tags.apply(resource_type="node-pools", resource_id="np1",
                           tags=[{"env": "prod"}])
     return

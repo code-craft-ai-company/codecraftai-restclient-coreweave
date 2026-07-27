@@ -12,7 +12,8 @@ __copyright__ = "Copyright 2026, Code Craft AI LLC"
 __credits__ = []
 
 
-import pytest
+from ccai import testbase
+
 
 from ccai.errors.exceptions import ConfigurationError
 
@@ -65,7 +66,7 @@ def test_construct_with_wrong_credential_raises():
     wrong = BasicCredential(identifier="basic", categories=["basic"],
                             username="u", password="p")
 
-    with pytest.raises(ConfigurationError):
+    with testbase.raises(ConfigurationError):
         CoreweaveClient(credential=wrong, organization_id=TEST_ORG,
                         project_id=TEST_PROJECT)
     return
@@ -79,7 +80,7 @@ def test_construct_missing_organization_raises():
     cred = CoreweaveApiCredential(identifier="cw", categories=["hpc-venue"],
                                   token="tok", organization_id=None)
 
-    with pytest.raises(ConfigurationError):
+    with testbase.raises(ConfigurationError):
         CoreweaveClient(credential=cred, project_id=TEST_PROJECT)
     return
 
@@ -89,7 +90,7 @@ def test_construct_missing_project_raises():
         Constructing without a project scope raises
         :class:`ConfigurationError`.
     """
-    with pytest.raises(ConfigurationError):
+    with testbase.raises(ConfigurationError):
         CoreweaveClient(credential=make_credential(),
                         organization_id=TEST_ORG, project_id="")
     return
