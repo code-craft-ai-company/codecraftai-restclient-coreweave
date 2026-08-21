@@ -42,7 +42,7 @@ from ccai.restclient.coreweave.model.coreweaveoperationresult import (
 )
 from ccai.restclient.coreweave.urlcompose import compose_leaf, require_identifier
 
-from ccai.tests.restclient.coreweave.testsupport import BASE, make_client
+from .testsupport import BASE, make_client
 
 
 # ----------------------------------------------------------------------

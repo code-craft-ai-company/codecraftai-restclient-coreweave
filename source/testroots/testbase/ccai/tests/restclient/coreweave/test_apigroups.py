@@ -30,7 +30,7 @@ from ccai.restclient.coreweave.model.coreweavekubeconfig import (
     CoreweaveKubeconfig
 )
 
-from ccai.tests.restclient.coreweave.testsupport import (
+from .testsupport import (
     BASE, TEST_PROJECT, make_client, sample_kubeconfig_yaml
 )
 

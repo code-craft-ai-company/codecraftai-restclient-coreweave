@@ -28,7 +28,7 @@ from ccai.restclient.coreweave.apigroups.kubeconfigsgroup import (
     KubeconfigsGroup
 )
 
-from ccai.tests.restclient.coreweave.testsupport import (
+from .testsupport import (
     TEST_ORG, TEST_PROJECT, make_client, make_credential
 )
 
