@@ -31,9 +31,6 @@ from ccai.restclient.coreweave.aspectscoreweave import AspectsCoreweave
 from ccai.restclient.coreweave.apigroups.groupsupport import (
     collect_paged_items
 )
-from ccai.restclient.coreweave.apigroups.operationsgroup import (
-    OperationsGroup
-)
 from ccai.restclient.coreweave.model.coreweavetaskhandle import (
     CoreweaveTaskHandle
 )
